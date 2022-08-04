@@ -11,14 +11,16 @@ enum RequestError: Error {
     case decode
     case invalidURL
     case noResponse
-    case unauthorized
     case unexpectedStatusCode
     case unknown
+    case redirection
+    case clientError
+    case serverError
 
     var customMessage: String {
         switch self {
         case .decode: return "Decode error"
-        case .unauthorized: return "Session expired"
+        case .clientError: return "Session expired"
         default: return "Unknown"
         }
     }
