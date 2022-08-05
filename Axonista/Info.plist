@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BASE_URL</key>
-	<string>api.themoviedb.org/</string>
+	<string>api.themoviedb.org</string>
 	<key>SCHEME_TYPE</key>
 	<string>https</string>
 	<key>UIApplicationSceneManifest</key>

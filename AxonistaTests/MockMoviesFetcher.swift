@@ -17,11 +17,3 @@ final class MockMoviesFetcher: Mockable, MovieFetchable {
         return .success(decode(filename: "movie", type: Movie.self))
     }
 }
-
-class MockAPIRequestTests: XCTestCase {
-
-    override func setUpWithError() throws {
-
-    }
-
-}
