@@ -73,6 +73,10 @@ class AxonistaTests: XCTestCase {
     }
 
     func testExtensions() throws {
-        
+        let runtime = 5000
+        XCTAssert(runtime.hms == "1h 23m 20s")
+
+        let date = "1999-07-30"
+        XCTAssert(date.ddMMMyyyy == "30 Jul 1999")
     }
 }
