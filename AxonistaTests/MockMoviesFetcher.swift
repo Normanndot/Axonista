@@ -13,7 +13,7 @@ final class MockMoviesFetcher: Mockable, MovieFetchable {
         return .success(decode(filename: "movies", type: Movies.self))
     }
 
-    func movieDetail(id: Int) async -> Result<Movie, RequestError> {
-        return .success(decode(filename: "movie", type: Movie.self))
+    func movieDetail(id: Int) async -> Result<MovieDetail, RequestError> {
+        return .success(decode(filename: "movie", type: MovieDetail.self))
     }
 }
