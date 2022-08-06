@@ -159,8 +159,8 @@ final class MovieDetailView: UIView {
             releaseDate.bottomAnchor.constraint(equalTo: runTime.topAnchor, constant: -10),
             releaseDate.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20),
             name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            name.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20)
+            name.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
 }
