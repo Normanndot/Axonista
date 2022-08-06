@@ -7,11 +7,15 @@
 
 import Foundation
 
+//protocol ViewModel: AnyObject {
+//
+//}
+
 protocol MovieDetailViewModel: AnyObject {
     var movieDetail: MovieDetail? { get set }
     var onFetchMovieSuccess: (() -> Void)? { get set }
     var onFetchMovieFailure: ((Error) -> Void)?  { get set }
-    func fetchMovies()
+    func fetch()
 }
 
 final class MovieDetailDefaultViewModel: MovieDetailViewModel {
@@ -28,7 +32,7 @@ final class MovieDetailDefaultViewModel: MovieDetailViewModel {
     var onFetchMovieSuccess: (() -> Void)?
     var onFetchMovieFailure: ((Error) -> Void)?
 
-    func fetchMovies() {
+    func fetch() {
         Task(priority: .background) {
             let result = await movieFetcher.movieDetail(id: movie.id)
             switch result {

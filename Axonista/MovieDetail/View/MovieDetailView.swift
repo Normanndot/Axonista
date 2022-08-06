@@ -163,6 +163,6 @@ final class MovieDetailView: UIView {
             name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -gap)
         ])
     }
-    
+
     let gap: CGFloat = 20
 }

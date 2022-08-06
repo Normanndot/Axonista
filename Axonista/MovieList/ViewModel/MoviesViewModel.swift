@@ -11,7 +11,7 @@ protocol MoviesViewModel: AnyObject {
     var movies: [Movie] { get set }
     var onFetchMovieSuccess: (() -> Void)? { get set }
     var onFetchMovieFailure: ((Error) -> Void)?  { get set }
-    func fetchMovies()
+    func fetch()
 }
 
 final class MoviesDefaultViewModel: MoviesViewModel {
@@ -26,7 +26,7 @@ final class MoviesDefaultViewModel: MoviesViewModel {
     var onFetchMovieSuccess: (() -> Void)?
     var onFetchMovieFailure: ((Error) -> Void)?
 
-    func fetchMovies() {
+    func fetch() {
         Task(priority: .background) {
             let result = await movieFetcher.movies()
             switch result {

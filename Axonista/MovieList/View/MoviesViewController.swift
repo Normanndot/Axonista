@@ -44,7 +44,7 @@ final class MoviesViewController: UIViewController {
     }
 
     private func fetchMovies() {
-        viewModel.fetchMovies()
+        viewModel.fetch()
     }
 
     private func subscribeToFetchEvent() {
