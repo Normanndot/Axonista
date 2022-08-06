@@ -137,12 +137,12 @@ final class MovieDetailView: UIView {
             movieImageView.heightAnchor.constraint(equalToConstant: 140),
             movieImageView.centerXAnchor.constraint(equalTo: coverImageView.centerXAnchor, constant: -self.frame.size.width/3),
             movieImageView.centerYAnchor.constraint(equalTo: coverImageView.centerYAnchor, constant: 80),
-            overViewTitle.topAnchor.constraint(equalTo: movieImageView.bottomAnchor, constant: 20),
+            overViewTitle.topAnchor.constraint(equalTo: movieImageView.bottomAnchor, constant: gap),
             overViewTitle.leadingAnchor.constraint(equalTo: movieImageView.leadingAnchor, constant: 10),
             overViewDesc.topAnchor.constraint(equalTo: overViewTitle.bottomAnchor, constant: 10),
             overViewDesc.leadingAnchor.constraint(equalTo: overViewTitle.leadingAnchor, constant: 10),
-            overViewDesc.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            overViewDesc.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            overViewDesc.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -gap),
+            overViewDesc.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -gap),
             score.leadingAnchor.constraint(equalTo: movieImageView.trailingAnchor, constant: 10),
             score.bottomAnchor.constraint(equalTo: coverImageView.bottomAnchor, constant: -10),
             score.widthAnchor.constraint(equalToConstant: 35),
@@ -151,16 +151,18 @@ final class MovieDetailView: UIView {
             scoreTitle.leadingAnchor.constraint(equalTo: score.trailingAnchor, constant: 10),
             journal.leadingAnchor.constraint(equalTo: score.leadingAnchor),
             journal.bottomAnchor.constraint(equalTo: score.topAnchor, constant: -10),
-            journal.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20),
+            journal.trailingAnchor.constraint(equalTo: trailingAnchor, constant: gap),
             runTime.leadingAnchor.constraint(equalTo: journal.leadingAnchor),
             runTime.bottomAnchor.constraint(equalTo: journal.topAnchor, constant: -10),
-            runTime.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20),
+            runTime.trailingAnchor.constraint(equalTo: trailingAnchor, constant: gap),
             releaseDate.leadingAnchor.constraint(equalTo: runTime.leadingAnchor),
             releaseDate.bottomAnchor.constraint(equalTo: runTime.topAnchor, constant: -10),
-            releaseDate.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20),
-            name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            name.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            releaseDate.trailingAnchor.constraint(equalTo: trailingAnchor, constant: gap),
+            name.leadingAnchor.constraint(equalTo: leadingAnchor, constant: gap),
+            name.topAnchor.constraint(equalTo: topAnchor, constant: gap/2),
+            name.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -gap)
         ])
     }
+    
+    let gap: CGFloat = 20
 }
