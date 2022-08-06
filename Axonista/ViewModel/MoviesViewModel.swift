@@ -38,8 +38,4 @@ final class MoviesDefaultViewModel: MoviesViewModel {
             }
         }
     }
-
-
-
-
 }

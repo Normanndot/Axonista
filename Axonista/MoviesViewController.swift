@@ -11,6 +11,7 @@ import UIKit
 final class MoviesViewController: UIViewController {
 
     private let viewModel: MoviesViewModel
+    private var moviesView: MoviesView?
 
     init(viewModel: MoviesViewModel) {
         self.viewModel = viewModel
@@ -24,8 +25,8 @@ final class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        movieView()
         view.backgroundColor = .white
+        movieView()
         self.title = "Top Movies"
         fetchMovies()
         subscribeToFetchEvent()
@@ -37,9 +38,13 @@ final class MoviesViewController: UIViewController {
 
     private func movieView() {
         let layout = MoviesUICollectionViewFlowLayout()
-        let movieView = MoviesView(frame: view.frame, collectionViewLayout: layout)
-        view.addSubview(movieView)
-        movieView.pinToSafeAreaOfSuperview()
+        let movieView = MoviesView(frame: self.view.frame, collectionViewLayout: layout)
+        movieView.translatesAutoresizingMaskIntoConstraints = false
+        moviesView = movieView
+        if let moviesView = moviesView {
+            view.addSubview(moviesView)
+            moviesView.pinToSafeAreaOfSuperview()
+        }
     }
 
     private func fetchMovies() {
@@ -48,38 +53,11 @@ final class MoviesViewController: UIViewController {
 
     private func subscribeToFetchEvent() {
         viewModel.onFetchMovieSuccess = { [weak self] in
-
+            self?.moviesView?.model = self?.viewModel.movies
         }
 
         viewModel.onFetchMovieFailure = { error in
 
         }
-    }
-}
-
-class MoviesView: UICollectionView {
-
-    var movies: [Movies]?
-
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: layout)
-        backgroundColor = .purple
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-class MoviesUICollectionViewFlowLayout: UICollectionViewFlowLayout {
-
-    override init() {
-        super.init()
-        sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        itemSize = CGSize(width: 60, height: 60)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

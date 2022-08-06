@@ -22,13 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         /// 2. Create a new UIWindow using the windowScene constructor which takes in a window scene.
         let window = UIWindow(windowScene: windowScene)
+        /// 3. Create a view hierarchy programmatically
         let fetcher = MovieFetcher()
         let viewModel: MoviesViewModel = MoviesDefaultViewModel(fetcher: fetcher)
-        /// 3. Create a view hierarchy programmatically
         let viewController = MoviesViewController(viewModel: viewModel)
         let navViewController = UINavigationController(rootViewController: viewController)
         /// 4. Set the root view controller of the window with your view controller
         window.rootViewController = navViewController
+        self.window = window
         window.makeKeyAndVisible()
     }
 
