@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreAudio
 
 class MoviesView: UICollectionView {
     var navigateMovieDetail: ((Movie?) -> Void)?
@@ -29,11 +28,6 @@ class MoviesView: UICollectionView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private func showDetail(`for` movie: Movie?) {
-
-    }
-
 }
 
 extension MoviesView: UICollectionViewDelegateFlowLayout {

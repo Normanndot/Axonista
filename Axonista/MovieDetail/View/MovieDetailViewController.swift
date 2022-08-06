@@ -9,6 +9,7 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
     private let viewModel: MovieDetailViewModel
+    private var detailView: MovieDetailView?
 
     init(viewModel: MovieDetailViewModel) {
         self.viewModel = viewModel
@@ -21,19 +22,31 @@ class MovieDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        movieDetailView()
+        fetchMovieDetail()
+        subscribeToFetchEvent()
     }
-    
 
-    /*
-    // MARK: - Navigation
+    private func movieDetailView() {
+        let detailView = MovieDetailView(frame: self.view.frame)
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        self.detailView = detailView
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let movieDetailView = self.detailView {
+            view.addSubview(movieDetailView)
+            movieDetailView.pinToSafeAreaOfSuperview()
+        }
     }
-    */
 
+    private func fetchMovieDetail() {
+        viewModel.fetchMovies()
+    }
+
+    private func subscribeToFetchEvent() {
+        viewModel.onFetchMovieSuccess = { [weak self] in
+            self?.detailView?.detail = self?.viewModel.movieDetail
+        }
+    }
 }

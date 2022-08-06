@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieDetailViewModel: AnyObject {
-    var movie: Movie { get }
+    var movieDetail: MovieDetail? { get set }
     var onFetchMovieSuccess: (() -> Void)? { get set }
     var onFetchMovieFailure: ((Error) -> Void)?  { get set }
     func fetchMovies()
@@ -22,7 +22,7 @@ final class MovieDetailDefaultViewModel: MovieDetailViewModel {
         self.movieFetcher = fetcher
         self.movie = movie
     }
-
+    
     var movie: Movie
     var movieDetail: MovieDetail?
     var onFetchMovieSuccess: (() -> Void)?

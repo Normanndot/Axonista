@@ -41,6 +41,7 @@
 		81FCC77F289E9E2E00433ED1 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC77E289E9E2D00433ED1 /* MovieDetailViewController.swift */; };
 		81FCC781289E9E4100433ED1 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC780289E9E4100433ED1 /* MovieDetailViewModel.swift */; };
 		81FCC783289EB35200433ED1 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC782289EB35200433ED1 /* MovieDetail.swift */; };
+		81FCC78E289EC1D100433ED1 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC78D289EC1D100433ED1 /* Int+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		81FCC77E289E9E2D00433ED1 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		81FCC780289E9E4100433ED1 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		81FCC782289EB35200433ED1 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		81FCC78D289EC1D100433ED1 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			children = (
 				81FCC760289D978C00433ED1 /* UIView+Extension.swift */,
 				81FCC77A289E901200433ED1 /* String+Extension.swift */,
+				81FCC78D289EC1D100433ED1 /* Int+Extension.swift */,
 				81FCC747289C560800433ED1 /* Utils.swift */,
 			);
 			path = Extensions;
@@ -436,6 +439,7 @@
 				81FCC767289DA63100433ED1 /* MoviesViewController.swift in Sources */,
 				81FCC765289D9DDB00433ED1 /* MoviesViewModel.swift in Sources */,
 				81FCC72D289C37E100433ED1 /* RequestMethod.swift in Sources */,
+				81FCC78E289EC1D100433ED1 /* Int+Extension.swift in Sources */,
 				81FCC77F289E9E2E00433ED1 /* MovieDetailViewController.swift in Sources */,
 				81FCC77D289E9E1A00433ED1 /* MovieDetailView.swift in Sources */,
 				81FCC6FC289C31E500433ED1 /* SceneDelegate.swift in Sources */,

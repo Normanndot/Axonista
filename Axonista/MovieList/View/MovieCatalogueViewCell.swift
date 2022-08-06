@@ -30,34 +30,45 @@ class MovieCatalogueViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 5.0
         imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
 
         return imageView
     }()
 
-    let movieName: UILabel = {
+    private let movieName: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return label
     }()
 
-    let movieReleaseDate: UILabel = {
+    private let movieReleaseDate: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
         return label
     }()
 
-    let movieLikePercentage: UILabel = {
+    private let movieLikePercentage: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
         label.backgroundColor = .black
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.layer.cornerRadius = 25
+        label.layer.masksToBounds = true
+        label.layer.borderColor = UIColor.green.cgColor
+        label.layer.borderWidth = 3.0
+
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        layer.cornerRadius = 5.0
+        layer.masksToBounds = true
         setUpView()
     }
 
@@ -66,21 +77,11 @@ class MovieCatalogueViewCell: UICollectionViewCell {
     }
 
     private func setUpView() {
-        layer.cornerRadius = 5.0
-        layer.masksToBounds = true
-
-
         translatesAutoresizingMaskIntoConstraintsFalse(forViews: movieImageView,
                                                        movieName,
                                                        movieReleaseDate,
                                                        movieLikePercentage)
         addSubviews(movieImageView, movieName, movieReleaseDate, movieLikePercentage)
-
-        movieImageView.clipsToBounds = true
-
-        movieName.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        movieReleaseDate.font = UIFont.preferredFont(forTextStyle: .caption1)
-        movieLikePercentage.font = UIFont.preferredFont(forTextStyle: .headline)
 
         NSLayoutConstraint.activate([
             movieImageView.topAnchor.constraint(equalTo: topAnchor),
@@ -95,17 +96,13 @@ class MovieCatalogueViewCell: UICollectionViewCell {
             movieReleaseDate.leadingAnchor.constraint(equalTo: leadingAnchor),
             movieReleaseDate.trailingAnchor.constraint(equalTo: trailingAnchor),
             movieReleaseDate.bottomAnchor.constraint(equalTo: bottomAnchor),
-            movieLikePercentage.centerXAnchor.constraint(equalTo: movieImageView.centerXAnchor, constant: -50),
-            movieLikePercentage.centerYAnchor.constraint(equalTo: movieImageView.centerYAnchor, constant: 100),
+            movieLikePercentage.centerXAnchor.constraint(equalTo: movieImageView.centerXAnchor,
+                                                         constant: -50),
+            movieLikePercentage.centerYAnchor.constraint(equalTo: movieImageView.centerYAnchor,
+                                                         constant: 100),
             movieLikePercentage.widthAnchor.constraint(equalToConstant: 50),
             movieLikePercentage.heightAnchor.constraint(equalToConstant: 50)
         ])
-
-        movieLikePercentage.layer.cornerRadius = 25
-        movieLikePercentage.layer.masksToBounds = true
-
-        movieLikePercentage.layer.borderColor = UIColor.green.cgColor
-        movieLikePercentage.layer.borderWidth = 3.0
     }
 }
 

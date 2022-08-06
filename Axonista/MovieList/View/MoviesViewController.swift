@@ -32,10 +32,6 @@ final class MoviesViewController: UIViewController {
         subscribeToFetchEvent()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     private func movieView() {
         let layout = MoviesUICollectionViewFlowLayout()
         let movieView = MoviesView(frame: self.view.frame, collectionViewLayout: layout)
@@ -57,7 +53,7 @@ final class MoviesViewController: UIViewController {
         }
 
         viewModel.onFetchMovieFailure = { error in
-
+            //
         }
 
         moviesView?.navigateMovieDetail = { [weak self] aMovie in
