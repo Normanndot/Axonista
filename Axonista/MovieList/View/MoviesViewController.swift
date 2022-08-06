@@ -59,5 +59,14 @@ final class MoviesViewController: UIViewController {
         viewModel.onFetchMovieFailure = { error in
 
         }
+
+        moviesView?.navigateMovieDetail = { [weak self] aMovie in
+            if let aMovie = aMovie {
+                let fetcher = MovieFetcher()
+                let detailViewModel = MovieDetailDefaultViewModel(fetcher: fetcher, movie: aMovie)
+                let detail = MovieDetailViewController(viewModel: detailViewModel)
+                self?.navigationController?.pushViewController(detail, animated: true)
+            }
+        }
     }
 }

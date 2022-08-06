@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MovieFetchable {
     func movies() async -> Result<Movies, RequestError>
-    func movieDetail(id: Int) async -> Result<Movie, RequestError>
+    func movieDetail(id: Int) async -> Result<MovieDetail, RequestError>
 }
 
 struct MovieFetcher: HTTPClient, MovieFetchable {
@@ -17,7 +18,7 @@ struct MovieFetcher: HTTPClient, MovieFetchable {
         return await fetch(request: MovieAPIRequest.movies, responseModel: Movies.self)
     }
 
-    func movieDetail(id: Int) async -> Result<Movie, RequestError> {
-        return await fetch(request: MovieAPIRequest.movieDetail(id: id), responseModel: Movie.self)
+    func movieDetail(id: Int) async -> Result<MovieDetail, RequestError> {
+        return await fetch(request: MovieAPIRequest.movieDetail(id: id), responseModel: MovieDetail.self)
     }
 }

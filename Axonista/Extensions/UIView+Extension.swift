@@ -23,4 +23,12 @@ extension UIView {
         guard let superview = self.superview else { return }
         pinToSafeArea(of: superview)
     }
+    
+    func addSubviews(_ views: UIView...) {
+        views.forEach({ self.addSubview($0) })
+    }
+
+    func translatesAutoresizingMaskIntoConstraintsFalse(forViews: UIView...) {
+        forViews.forEach({ $0.translatesAutoresizingMaskIntoConstraints = false })
+    }
 }
