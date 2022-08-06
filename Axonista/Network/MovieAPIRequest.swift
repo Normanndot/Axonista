@@ -29,5 +29,4 @@ extension MovieAPIRequest: APIRequest {
 
     var body: [String : String]? { return nil }
 }
-//http://api.themoviedb.org/3/movie/top_rated?api_key=505387fc08c92bf8affa219c93358b37
 

@@ -24,11 +24,9 @@
 		81FCC743289C508900433ED1 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC742289C508900433ED1 /* APIRequest.swift */; };
 		81FCC748289C560800433ED1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC747289C560800433ED1 /* Utils.swift */; };
 		81FCC74A289C666A00433ED1 /* MockMoviesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC749289C666A00433ED1 /* MockMoviesFetcher.swift */; };
-		81FCC74E289C682A00433ED1 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC74D289C682A00433ED1 /* MockHTTPClient.swift */; };
 		81FCC750289C68E000433ED1 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC74F289C68E000433ED1 /* Mockable.swift */; };
 		81FCC755289C6B9800433ED1 /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 81FCC752289C6AE800433ED1 /* movies.json */; };
 		81FCC757289C6BAA00433ED1 /* movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 81FCC756289C6BAA00433ED1 /* movie.json */; };
-		81FCC759289D00AD00433ED1 /* MovieAPIRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC758289D00AD00433ED1 /* MovieAPIRequestTest.swift */; };
 		81FCC761289D978C00433ED1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC760289D978C00433ED1 /* UIView+Extension.swift */; };
 		81FCC765289D9DDB00433ED1 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC764289D9DDB00433ED1 /* MoviesViewModel.swift */; };
 		81FCC767289DA63100433ED1 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCC766289DA63100433ED1 /* MoviesViewController.swift */; };
@@ -83,11 +81,9 @@
 		81FCC742289C508900433ED1 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		81FCC747289C560800433ED1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		81FCC749289C666A00433ED1 /* MockMoviesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesFetcher.swift; sourceTree = "<group>"; };
-		81FCC74D289C682A00433ED1 /* MockHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHTTPClient.swift; sourceTree = "<group>"; };
 		81FCC74F289C68E000433ED1 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		81FCC752289C6AE800433ED1 /* movies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
 		81FCC756289C6BAA00433ED1 /* movie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = movie.json; sourceTree = "<group>"; };
-		81FCC758289D00AD00433ED1 /* MovieAPIRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIRequestTest.swift; sourceTree = "<group>"; };
 		81FCC760289D978C00433ED1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		81FCC764289D9DDB00433ED1 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		81FCC766289DA63100433ED1 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -169,8 +165,6 @@
 			children = (
 				81FCC710289C31E700433ED1 /* AxonistaTests.swift */,
 				81FCC749289C666A00433ED1 /* MockMoviesFetcher.swift */,
-				81FCC74D289C682A00433ED1 /* MockHTTPClient.swift */,
-				81FCC758289D00AD00433ED1 /* MovieAPIRequestTest.swift */,
 				81FCC74F289C68E000433ED1 /* Mockable.swift */,
 				81FCC752289C6AE800433ED1 /* movies.json */,
 				81FCC756289C6BAA00433ED1 /* movie.json */,
@@ -452,10 +446,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FCC74E289C682A00433ED1 /* MockHTTPClient.swift in Sources */,
 				81FCC74A289C666A00433ED1 /* MockMoviesFetcher.swift in Sources */,
 				81FCC750289C68E000433ED1 /* Mockable.swift in Sources */,
-				81FCC759289D00AD00433ED1 /* MovieAPIRequestTest.swift in Sources */,
 				81FCC711289C31E700433ED1 /* AxonistaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,19 +18,61 @@ class AxonistaTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testMoviesControllerFetchData() throws {
+        let fetcher = MockMoviesFetcher()
+        let viewModel: MoviesViewModel = MoviesDefaultViewModel(fetcher: fetcher)
+        let viewController = MoviesViewController(viewModel: viewModel)
+        viewController.viewDidLoad()
+        sleep(1)
+        XCTAssertEqual(viewModel.movies.count, 20)
+        XCTAssertEqual(viewModel.movies.first?.title, "The Shawshank Redemption")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testMovieDetailViewControllerFetchData() throws {
+        let fetcher = MockMoviesFetcher()
+        let movieViewModel: MoviesViewModel = MoviesDefaultViewModel(fetcher: fetcher)
+        let movieViewController = MoviesViewController(viewModel: movieViewModel)
+        movieViewController.viewDidLoad()
+        sleep(1)
+
+        let moviesView = movieViewController.view.subviews.filter { $0.isKind(of: MoviesView.self) }.first
+        XCTAssert(moviesView is MoviesView)
+
+        let viewModel: MovieDetailViewModel = MovieDetailDefaultViewModel(fetcher: fetcher, movie: movieViewModel.movies[1])
+        let viewController = MovieDetailViewController(viewModel: viewModel)
+        viewController.viewDidLoad()
+        sleep(1)
+        XCTAssertEqual(viewModel.movieDetail?.id, 238)
+        XCTAssertEqual(viewModel.movieDetail?.popularity, 106.461)
+
+        let movieDetailView = viewController.view.subviews.filter { $0.isKind(of: MovieDetailView.self) }.first
+        XCTAssert(movieDetailView is MovieDetailView)
     }
 
+    func testMovieFetcher() throws {
+        let fetcher = MovieFetcher()
+
+        let movieViewModel: MoviesViewModel = MoviesDefaultViewModel(fetcher: fetcher)
+        let movieViewController = MoviesViewController(viewModel: movieViewModel)
+        movieViewController.viewDidLoad()
+        sleep(1)
+
+        let movieDetailViewModel: MovieDetailViewModel = MovieDetailDefaultViewModel(fetcher: fetcher, movie: movieViewModel.movies[1])
+        let detailViewController = MovieDetailViewController(viewModel: movieDetailViewModel)
+        detailViewController.viewDidLoad()
+    }
+
+    func testMoviesAPIRequest() throws {
+        let moviesAPI = MovieAPIRequest.movies
+        let expectedHeaders = ["Authorization": "Bearer \(Utils.accessToken)",
+                               "Content-Type":"application/json;charset=utf-8"]
+        XCTAssertTrue(moviesAPI.path == "/3/movie/top_rated", "Some is going to be grounded 🔥. Check who made this change")
+        XCTAssertTrue(moviesAPI.baseURL == "https://api.themoviedb.org", "Aren't we not developing Movie App? 🙄")
+        XCTAssertTrue(moviesAPI.urlRequest.allHTTPHeaderFields == expectedHeaders, "Is it working in PostMan?")
+        XCTAssertTrue(moviesAPI.method == .get, "This is a get HTTP method. Did it got changed? 🚀")
+    }
+
+    func testExtensions() throws {
+        
+    }
 }
