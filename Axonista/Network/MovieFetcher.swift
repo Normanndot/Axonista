@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import NetworkLibrary
 
 protocol MovieFetchable {
     func movies() async -> Result<Movies, RequestError>

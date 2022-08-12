@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NetworkLibrary
 
 enum MovieAPIRequest {
     case movies
